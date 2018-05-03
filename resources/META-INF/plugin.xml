@@ -17,6 +17,7 @@
   <depends>com.intellij.modules.lang</depends>
 
   <extensions defaultExtensionNs="com.intellij">
+    <fileTypeFactory implementation="org.koilang.koi.KoiFileTypeFactory"/>
   </extensions>
 
   <actions>
