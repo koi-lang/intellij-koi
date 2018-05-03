@@ -1,0 +1,24 @@
+<idea-plugin>
+  <id>org.koilang.koi</id>
+  <name>Koi Language Support</name>
+  <version>1.0.0</version>
+  <vendor>Koi Lang</vendor>
+
+  <description><![CDATA[
+      Koi language support.
+    ]]></description>
+
+  <change-notes><![CDATA[
+    ]]>
+  </change-notes>
+
+  <idea-version since-build="145.0"/>
+
+  <depends>com.intellij.modules.lang</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+  </extensions>
+
+  <actions>
+  </actions>
+</idea-plugin>
