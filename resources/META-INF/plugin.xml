@@ -1,25 +1,33 @@
 <idea-plugin>
-  <id>org.koilang.koi</id>
-  <name>Koi Language Support</name>
-  <version>1.0.0</version>
-  <vendor>Koi Lang</vendor>
+    <id>org.koilang.koi</id>
+    <name>Koi Language Support</name>
+    <version>1.0.0</version>
+    <vendor>Koi Lang</vendor>
 
-  <description><![CDATA[
+    <description><![CDATA[
       Koi language support.
-    ]]></description>
-
-  <change-notes><![CDATA[
     ]]>
-  </change-notes>
+    </description>
 
-  <idea-version since-build="145.0"/>
+    <change-notes><![CDATA[
+    ]]>
+    </change-notes>
 
-  <depends>com.intellij.modules.lang</depends>
+    <idea-version since-build="145.0"/>
 
-  <extensions defaultExtensionNs="com.intellij">
-    <fileTypeFactory implementation="org.koilang.koi.KoiFileTypeFactory"/>
-  </extensions>
+    <depends>com.intellij.modules.lang</depends>
 
-  <actions>
-  </actions>
+    <extensions defaultExtensionNs="com.intellij">
+        <fileTypeFactory implementation="org.koilang.koi.lang.KoiFileTypeFactory"/>
+        <internalFileTemplate name="Koi File"/>
+    </extensions>
+
+    <actions>
+        <action id="Koi.NewKoiFile"
+                class="org.koilang.koi.ide.actions.KoiCreateFileAction"
+                text="Koi File"
+                description="Create new Koi file">
+            <add-to-group group-id="NewGroup" anchor="after" relative-to-action="NewFile"/>
+        </action>
+    </actions>
 </idea-plugin>
