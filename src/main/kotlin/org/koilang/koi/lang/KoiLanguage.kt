@@ -1,4 +1,4 @@
-package org.koilang.koi
+package org.koilang.koi.lang
 
 import com.intellij.lang.Language
 

@@ -1,6 +1,7 @@
-package org.koilang.koi
+package org.koilang.koi.lang
 
 import com.intellij.openapi.fileTypes.LanguageFileType
+import org.koilang.koi.ide.icons.KoiIcons
 import javax.swing.Icon
 
 object KoiFileType : LanguageFileType(KoiLanguage) {
