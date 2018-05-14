@@ -1,4 +1,4 @@
-package org.koilang.koi.ide.icons
+package org.koilang.intellijkoi.ide.icons
 
 import com.intellij.openapi.util.IconLoader
 

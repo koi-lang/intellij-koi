@@ -1,7 +1,7 @@
 <idea-plugin>
-    <id>org.koilang.koi</id>
+    <id>org.koilang.intellijkoi</id>
     <name>Koi Language Support</name>
-    <version>1.0.0</version>
+    <version>1.2.0</version>
     <vendor>Koi Lang</vendor>
 
     <description><![CDATA[
@@ -18,13 +18,13 @@
     <depends>com.intellij.modules.lang</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <fileTypeFactory implementation="org.koilang.koi.lang.KoiFileTypeFactory"/>
+        <fileTypeFactory implementation="org.koilang.intellijkoi.lang.KoiFileTypeFactory"/>
         <internalFileTemplate name="Koi File"/>
     </extensions>
 
     <actions>
         <action id="Koi.NewKoiFile"
-                class="org.koilang.koi.ide.actions.KoiCreateFileAction"
+                class="org.koilang.intellijkoi.ide.actions.KoiCreateFileAction"
                 text="Koi File"
                 description="Create new Koi file">
             <add-to-group group-id="NewGroup" anchor="after" relative-to-action="NewFile"/>

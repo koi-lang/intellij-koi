@@ -1,11 +1,11 @@
-package org.koilang.koi.ide.actions
+package org.koilang.intellijkoi.ide.actions
 
 import com.intellij.ide.actions.CreateFileFromTemplateAction
 import com.intellij.ide.actions.CreateFileFromTemplateDialog
 import com.intellij.openapi.project.DumbAware
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiDirectory
-import org.koilang.koi.ide.icons.KoiIcons
+import org.koilang.intellijkoi.ide.icons.KoiIcons
 
 class KoiCreateFileAction : CreateFileFromTemplateAction(CAPTION, "", KoiIcons.KOI_FILE), DumbAware {
     override fun getActionName(directory: PsiDirectory?, newName: String?, templateName: String?): String = CAPTION
