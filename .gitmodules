@@ -1,0 +1,3 @@
+[submodule "src/main/antlr/org/koilang/intellijkoi"]
+	path = src/main/antlr/org/koilang/intellijkoi
+	url = https://github.com/koi-lang/koi-grammar

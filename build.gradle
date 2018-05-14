@@ -25,6 +25,9 @@ repositories {
 }
 
 dependencies {
+    compile "org.antlr:antlr4-runtime:4.7.1"
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+
     antlr "org.antlr:antlr4:4.7.1"
 }
 
@@ -41,4 +44,6 @@ compileTestKotlin {
 
 generateGrammarSource {
     maxHeapSize = "64m"
+    arguments += ["-package", "org.koilang.intellijkoi",
+                  "-o", "out/production/classes/org/koilang/intellijkoi"]
 }
