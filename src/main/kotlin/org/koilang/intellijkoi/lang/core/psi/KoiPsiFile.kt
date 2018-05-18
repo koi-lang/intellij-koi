@@ -7,7 +7,7 @@ import org.koilang.intellijkoi.lang.KoiFileType
 import org.koilang.intellijkoi.lang.KoiLanguage
 import javax.swing.Icon
 
-class KoiFile(viewProvider: FileViewProvider) : PsiFileBase(viewProvider, KoiLanguage) {
+class KoiPsiFile(viewProvider: FileViewProvider) : PsiFileBase(viewProvider, KoiLanguage) {
     override fun getFileType(): FileType = KoiFileType
 
     override fun toString(): String = "Koi File"
