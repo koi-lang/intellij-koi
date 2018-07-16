@@ -20,6 +20,8 @@
     <extensions defaultExtensionNs="com.intellij">
         <fileTypeFactory implementation="org.koilang.intellijkoi.lang.KoiFileTypeFactory"/>
         <internalFileTemplate name="Koi File"/>
+
+        <lang.parserDefinition language="Koi" implementationClass="org.koilang.intellijkoi.lang.core.psi.KoiParserDefinition"/>
     </extensions>
 
     <actions>

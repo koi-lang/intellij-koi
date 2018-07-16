@@ -8,7 +8,6 @@ import com.intellij.openapi.project.Project
 import com.intellij.psi.FileViewProvider
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
-import com.intellij.psi.TokenType
 import com.intellij.psi.tree.IElementType
 import com.intellij.psi.tree.IFileElementType
 import com.intellij.psi.tree.TokenSet
@@ -27,17 +26,19 @@ import org.koilang.intellijkoi.lang.KoiLanguage
 class KoiParserDefinition : ParserDefinition {
     val FILE = IFileElementType(KoiLanguage)
 
-    val tokenIElementTypes: List<TokenIElementType> = PSIElementTypeFactory.getTokenIElementTypes(KoiLanguage)
+    // val tokenIElementTypes: List<TokenIElementType> = PSIElementTypeFactory.getTokenIElementTypes(KoiLanguage)
 
-    val ID: TokenIElementType = tokenIElementTypes[KoiLexer.ID]
+    // val ID: TokenIElementType = tokenIElementTypes[KoiLexer.ID]
 
     init {
         PSIElementTypeFactory.defineLanguageIElementTypes(KoiLanguage, KoiParser.tokenNames, KoiParser.ruleNames)
     }
 
-    val COMMENTS = PSIElementTypeFactory.createTokenSet(KoiLanguage, KoiLexer.COMMENT, KoiLexer.MULTICOMMENT)
-    val WHITESPACE = PSIElementTypeFactory.createTokenSet(KoiLanguage, KoiLexer.WS)
-    val STRING = PSIElementTypeFactory.createTokenSet(KoiLanguage, KoiLexer.LITSTRING, KoiLexer.SINGLESTRING, KoiLexer.MULTISTRING)
+    companion object {
+        @JvmField val COMMENTS = PSIElementTypeFactory.createTokenSet(KoiLanguage, KoiLexer.COMMENT, KoiLexer.MULTICOMMENT)
+        @JvmField val WHITESPACE = PSIElementTypeFactory.createTokenSet(KoiLanguage, KoiLexer.WS)
+        @JvmField val STRING = PSIElementTypeFactory.createTokenSet(KoiLanguage, KoiLexer.LITSTRING, KoiLexer.SINGLESTRING, KoiLexer.MULTISTRING)
+    }
 
     override fun createLexer(project: Project?): Lexer {
         val lexer = KoiLexer(null)

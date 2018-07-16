@@ -20,6 +20,14 @@ archivesBaseName = "intellijkoi"
 
 sourceCompatibility = targetCompatibility = '1.8'
 
+sourceSets {
+    main {
+        java {
+            srcDirs += "adaptor/src/"
+        }
+    }
+}
+
 repositories {
     mavenCentral()
 }
