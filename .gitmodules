@@ -4,3 +4,9 @@
 [submodule "adaptor"]
 	path = adaptor
 	url = git@github.com:antlr/jetbrains.git
+[submodule "src/main/antlr/org/koi/grammar"]
+	path = src/main/antlr/org/koi/grammar
+	url = https://github.com/koi-lang/koi-grammar
+[submodule "src/main/resources/icons"]
+	path = src/main/resources/icons
+	url = https://github.com/koi-lang/icons

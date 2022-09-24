@@ -1,2 +1,2 @@
-# intellij-koi
-A Koi plugin for the IntelliJ platform.
+# intellij-concurnas
+A Concurnas plugin for IntelliJ platform.

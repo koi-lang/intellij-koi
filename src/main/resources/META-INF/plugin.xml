@@ -1,0 +1,52 @@
+<idea-plugin>
+    <id>org.koi.intellij</id>
+    <name>Koi Language Support</name>
+    <version>1.0.0</version>
+    <vendor>DeflatedPickle</vendor>
+
+    <description><![CDATA[
+      A plugin to add support for the Koi language
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="192"/>
+
+    <depends>com.intellij.modules.lang</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <fileTypeFactory implementation="org.koi.intellij.file.KoiFileTypeFactory"/>
+
+        <lang.parserDefinition language="Koi"
+                               implementationClass="org.koi.intellij.parser.KoiParserDefinition"/>
+
+        <lang.ast.factory language="Koi"
+                          implementationClass="org.koi.intellij.ast.KoiASTFactory"/>
+
+        <lang.syntaxHighlighterFactory language="Koi"
+                                       implementationClass="org.koi.intellij.syntax.highlight.KoiSyntaxHighlighterFactory"/>
+
+        <lang.braceMatcher language="Koi"
+                           implementationClass="org.koi.intellij.matcher.KoiBraceMatcher"/>
+
+        <lang.foldingBuilder language="Koi"
+                             implementationClass="org.koi.intellij.folding.KoiFoldingBuilder"/>
+
+        <lang.commenter language="Koi"
+                        implementationClass="org.koi.intellij.commenter.KoiCommenter"/>
+
+        <facetType
+                implementation="org.koi.intellij.facet.KoiFacetType"/>
+
+        <configurationType
+                implementation="org.koi.intellij.configuration.KoiRunConfigurationType"/>
+
+        <completion.contributor language="Koi"
+                                implementationClass="org.koi.intellij.completion.KoiKeywordCompletionContributor"/>
+
+        <codeInsight.lineMarkerProvider language="Koi"
+                                        implementationClass="org.koi.intellij.gutter.KoiLineMarkerProvider" />
+    </extensions>
+
+    <actions>
+    </actions>
+</idea-plugin>
