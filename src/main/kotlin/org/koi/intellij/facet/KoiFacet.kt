@@ -10,7 +10,7 @@ class KoiFacet(
         module: Module,
         name: String,
         configuration: KoiFacetConfiguration,
-        underlyingFacet: Facet<*>
+        underlyingFacet: Facet<*>?
 ) : Facet<KoiFacetConfiguration?>(
         facetType, module, name, configuration, underlyingFacet
 )

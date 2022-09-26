@@ -29,6 +29,7 @@ import org.koi.intellij.psi.node.KoiPSIBlockSubtree
 import org.koi.intellij.psi.node.KoiPSICallSubtree
 import org.koi.intellij.psi.subtree.KoiPSIClassSubtree
 import org.koi.intellij.psi.subtree.KoiPSIFunctionSubtree
+import org.koi.intellij.psi.subtree.KoiPSIImportSubtree
 import org.koi.intellij.psi.subtree.KoiPSIVardefSubtree
 
 
@@ -111,12 +112,30 @@ class KoiParserDefinition : ParserDefinition {
         }
 
         return when (elType.ruleIndex) {
-            KoiParser.RULE_function_block -> KoiPSIFunctionSubtree(node, elType)
+            KoiParser.RULE_function_block,
+            KoiParser.RULE_procedure_block,
+                // KoiParser.RULE_method_block
+            -> KoiPSIFunctionSubtree(node, elType)
+
             KoiParser.RULE_class_block -> KoiPSIClassSubtree(node, elType)
-            KoiParser.RULE_block -> KoiPSIBlockSubtree(node)
-            KoiParser.RULE_function_call -> KoiPSICallSubtree(node)
+            KoiParser.RULE_code_block,
+            KoiParser.RULE_return_block,
+            KoiParser.RULE_break_block,
+            KoiParser.RULE_inner_class_block,
+            KoiParser.RULE_when_block,
+            KoiParser.RULE_is_block,
+            KoiParser.RULE_when_else_block,
+            KoiParser.RULE_enum_block,
+            KoiParser.RULE_struct_block
+            -> KoiPSIBlockSubtree(node)
+
+            KoiParser.RULE_function_call,
+            KoiParser.RULE_method_call
+            -> KoiPSICallSubtree(node)
 
             KoiParser.RULE_local_asstmt -> KoiPSIVardefSubtree(node, elType)
+
+            KoiParser.RULE_import_stmt -> KoiPSIImportSubtree(node, elType)
             else -> ANTLRPsiNode(node)
         }
     }

@@ -7,6 +7,7 @@ import com.intellij.openapi.editor.markup.GutterIconRenderer
 import com.intellij.psi.PsiElement
 import org.koi.intellij.psi.subtree.KoiPSIClassSubtree
 import org.koi.intellij.psi.subtree.KoiPSIFunctionSubtree
+import org.koi.intellij.psi.subtree.KoiPSIImportSubtree
 import org.koi.intellij.psi.subtree.KoiPSIVardefSubtree
 
 class KoiLineMarkerProvider : LineMarkerProvider {
@@ -17,7 +18,17 @@ class KoiLineMarkerProvider : LineMarkerProvider {
                     element,
                     element.textRange,
                     AllIcons.Nodes.Variable,
-                    { "" },
+                    { "Defines variable ${element.text}" },
+                    null,
+                    GutterIconRenderer.Alignment.RIGHT
+                )
+
+            is KoiPSIImportSubtree ->
+                LineMarkerInfo(
+                    element,
+                    element.textRange,
+                    AllIcons.Nodes.Include,
+                    { "Imports identifier ${element.text}" },
                     null,
                     GutterIconRenderer.Alignment.RIGHT
                 )
@@ -27,7 +38,7 @@ class KoiLineMarkerProvider : LineMarkerProvider {
                     element,
                     element.textRange,
                     AllIcons.Nodes.Class,
-                    { "" },
+                    { "Defines class '${element.text}'" },
                     null,
                     GutterIconRenderer.Alignment.RIGHT
                 )
@@ -35,9 +46,9 @@ class KoiLineMarkerProvider : LineMarkerProvider {
             is KoiPSIFunctionSubtree ->
                 LineMarkerInfo(
                     element,
-                    element.parent.textRange,
+                    element.textRange,
                     AllIcons.Nodes.Function,
-                    { "" },
+                    { "Defines function '${element.text}'" },
                     null,
                     GutterIconRenderer.Alignment.RIGHT
                 )

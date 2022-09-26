@@ -33,6 +33,10 @@ class KoiSyntaxHighlighter : SyntaxHighlighterBase() {
             "KOI_NUMBER", DefaultLanguageHighlighterColors.NUMBER
         )
 
+        val CLASS_NAME = createTextAttributesKey(
+            "KOI_CLASS_NAME", DefaultLanguageHighlighterColors.CLASS_NAME
+        )
+
         val LINE_COMMENT = createTextAttributesKey(
             "KOI_LINE_COMMENT", DefaultLanguageHighlighterColors.LINE_COMMENT
         )
@@ -99,7 +103,14 @@ class KoiSyntaxHighlighter : SyntaxHighlighterBase() {
             when (tokenType.antlrTokenType) {
                 KoiLexer.DOT, KoiLexer.TRIPLE_DOT -> DOT
 
-                KoiLexer.QUESTION, KoiLexer.EXCLAMATION -> PREDEFINED
+                KoiLexer.QUESTION, KoiLexer.EXCLAMATION,
+                KoiLexer.CORE, KoiLexer.STANDARD, KoiLexer.LOCAL -> PREDEFINED
+
+                KoiLexer.OBJ,
+                KoiLexer.CHAR, KoiLexer.STR,
+                KoiLexer.INT, KoiLexer.FLO, KoiLexer.DOU,
+                KoiLexer.BOOL,
+                KoiLexer.NONE -> CLASS_NAME
 
                 KoiLexer.EQUALS,
                 KoiLexer.ADD,
@@ -113,7 +124,7 @@ class KoiSyntaxHighlighter : SyntaxHighlighterBase() {
                 KoiLexer.OPEN_BRACKET, KoiLexer.CLOSE_BRACKET -> BRACKETS
 
                 KoiLexer.VAR,
-                KoiLexer.CALL,
+                KoiLexer.NEW, KoiLexer.CALL,
                 KoiLexer.IMPORT,
                 KoiLexer.RETURN,
                 KoiLexer.ENUM, KoiLexer.STRUCT,

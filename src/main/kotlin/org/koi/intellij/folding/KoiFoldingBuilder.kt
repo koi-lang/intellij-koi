@@ -13,8 +13,6 @@ import org.koi.intellij.psi.KoiPSIFileRoot
 import org.koi.intellij.psi.node.KoiPSIBlockSubtree
 
 class KoiFoldingBuilder : CustomFoldingBuilder() {
-    val blockGroup: FoldingGroup = FoldingGroup.newGroup("block")
-
     override fun buildLanguageFoldRegions(
             descriptors: MutableList<FoldingDescriptor>,
             root: PsiElement,
@@ -26,7 +24,7 @@ class KoiFoldingBuilder : CustomFoldingBuilder() {
         addBlockFoldingDescriptor(descriptors, root)
     }
 
-    override fun isRegionCollapsedByDefault(node: ASTNode): Boolean = true
+    override fun isRegionCollapsedByDefault(node: ASTNode): Boolean = false
 
     override fun getLanguagePlaceholderText(node: ASTNode, range: TextRange): String =
         when (SourceTreeToPsiMap.treeElementToPsi(node)) {
@@ -45,7 +43,7 @@ class KoiFoldingBuilder : CustomFoldingBuilder() {
                             expr.textRange.startOffset + 1,
                             expr.textRange.endOffset - 1
                     ),
-                    blockGroup
+                    null
             ))
         }
     }

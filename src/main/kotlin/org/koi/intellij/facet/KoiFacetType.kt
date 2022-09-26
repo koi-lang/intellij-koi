@@ -23,7 +23,7 @@ class KoiFacetType : FacetType<KoiFacet, KoiFacetConfiguration>(
     override fun createFacet(
         module: Module, name: String,
         configuration: KoiFacetConfiguration, underlyingFacet: Facet<*>?
-    ): KoiFacet = KoiFacet(this, module, name, configuration, underlyingFacet!!)
+    ): KoiFacet = KoiFacet(this, module, name, configuration, underlyingFacet)
 
     override fun isSuitableModuleType(moduleType: ModuleType<*>?): Boolean = true
 
