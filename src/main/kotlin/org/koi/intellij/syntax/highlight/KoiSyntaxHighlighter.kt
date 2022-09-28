@@ -103,14 +103,7 @@ class KoiSyntaxHighlighter : SyntaxHighlighterBase() {
             when (tokenType.antlrTokenType) {
                 KoiLexer.DOT, KoiLexer.TRIPLE_DOT -> DOT
 
-                KoiLexer.QUESTION, KoiLexer.EXCLAMATION,
-                KoiLexer.CORE, KoiLexer.STANDARD, KoiLexer.LOCAL -> PREDEFINED
-
-                KoiLexer.OBJ,
-                KoiLexer.CHAR, KoiLexer.STR,
-                KoiLexer.INT, KoiLexer.FLO, KoiLexer.DOU,
-                KoiLexer.BOOL,
-                KoiLexer.NONE -> CLASS_NAME
+                KoiLexer.QUESTION, KoiLexer.EXCLAMATION -> PREDEFINED
 
                 KoiLexer.EQUALS,
                 KoiLexer.ADD,
@@ -135,6 +128,12 @@ class KoiSyntaxHighlighter : SyntaxHighlighterBase() {
                 KoiLexer.METH,
                 KoiLexer.CLASS,
                 KoiLexer.CONSTRUCTOR, KoiLexer.INIT,
+                KoiLexer.CORE, KoiLexer.STANDARD, KoiLexer.LOCAL,
+                KoiLexer.OBJ,
+                KoiLexer.CHAR, KoiLexer.STR,
+                KoiLexer.INT, KoiLexer.FLO, KoiLexer.DOU,
+                KoiLexer.BOOL,
+                KoiLexer.NONE,
                 -> KEYWORD
 
                 KoiLexer.SEMICOLON -> SEMI_COLON
